@@ -1,5 +1,177 @@
-# Avoid including Experiment files: they can be created and edited locally to test the ipf files
-*.pxp
-*.pxt
-*.uxp
-*.uxt
+<style>
+  body{
+  font-size:90px;
+  margin:0;
+  min-height:100vh;
+  background:#000;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  perspective:12em;
+  transform-origin:50% calc(50% - 5em);
+  overflow:hidden;
+}
+
+audio{
+  display:none;
+  pointer-events:none;
+}
+
+/* stars */
+
+.stars{
+  width:100%;
+  height:100%;
+  position:absolute;
+  background-image:url('https://i.postimg.cc/mZ5qbW89/Pngtree-white-dot-flash-element-4494132.png');
+  transition:16s;
+}
+
+.star1{
+  animation:stars 145s infinite linear reverse;
+}
+
+.star2{
+  width:500%;
+  height:500%;
+  animation:stars 145s infinite linear;
+}
+
+@keyframes stars{
+  0%{transform:rotate(0deg);}
+  100%{transform:rotate(360deg);}
+}
+
+/* Container */
+
+.scene{
+  position:absolute;
+  transform-style:preserve-3d;
+  display:flex;
+  justify-content:center;
+  transform:rotateX(0deg);
+  transition:transform .5s;
+  opacity:.5;
+  border-radius:50%;
+}
+
+.scene:hover{
+  opacity:1;
+  transform: translateY(1.5em) rotateX(90deg);
+}
+
+/* Watch Image */
+
+div.bg{
+  transform-style:preserve-3d;
+  position:relative;
+  background-image:repeating-conic-gradient(
+    from 90deg,
+    #70e000 0deg 90deg,
+    #222 90deg 180deg
+  );
+  width:3em;
+  height:3em;
+  border-radius:50%;
+  transition:.5s;
+  display:flex;
+  justify-content:center;
+  align-items:center; 
+}
+div.bg::before{
+  content:'';
+  position:absolute;
+  width:90%;
+  height:90%;
+  background:inherit;
+  border-radius:50%;
+/*   transform:translateZ(.03em); */
+  transition:.5s;
+}
+
+.scene:hover .bg::before{
+  animation:upNRotate 2.5s 1s infinite linear;
+}
+
+@keyframes upNRotate{
+  0%{transform:translateZ(.15em) rotate(0deg);}
+  100%{transform:translateZ(.15em) rotate(360deg);}
+}
+
+/* Backlit */
+
+.backlit{
+  position:absolute;
+  transform:translateZ(1.6em) rotateX(270deg);
+  border-radius:50%;
+  transition:.5s 1s;
+}
+
+.scene:hover .backlit{
+  width:2.5em;
+  height:2.5em;
+  background:green;
+  filter:blur(45px);
+}
+
+/* Hero Images */
+.img{
+  position:absolute;
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center;
+  width:90%;
+  height:90%;
+  opacity:0;
+  transition:.5s 1s;
+  transform:translateZ(1.6em) rotateX(270deg);
+}
+
+.scene:hover .img{
+  opacity:1;
+  animation:shift 10s infinite linear;
+}
+
+@keyframes shift{
+  0%, 100%{
+    background-image:url('https://i.postimg.cc/5yXLYjkq/Nice-Png-ben-10-png-1195997.png');
+  }
+  8.33%{
+    background-image:url('https://i.postimg.cc/kMLtYJpz/favpng-deviantart-ben-10-wikia-work-of-art.png');
+  }
+  16.33%{
+    background-image:url('https://i.postimg.cc/FRBhRKS4/favpng-nanomech-ben-10-cartoon-clip-art.png');
+  }
+  24.33%{
+    background-image:url('https://i.postimg.cc/fT3fkqGn/5a94499d9fc609199d0feef2.png');
+  }
+  32.33%{
+    background-image:url('https://i.postimg.cc/QMDQ48Hh/Nice-Png-ben-10-png-1195819.png');
+  }
+  40.33%{
+    background-image:url('https://i.postimg.cc/5yXLYjkq/Nice-Png-ben-10-png-1195997.png');
+  }
+  48.33%{
+    background-image:url('https://i.postimg.cc/4xVvQ74W/Nice-Png-ben-10-png-1196019.png');
+  }
+  56.33%{
+    background-image:url('https://i.postimg.cc/ydQ080n8/Nice-Png-ben-10-png-1196068.png');
+  }
+  64.33%{
+    background-image:url('https://i.postimg.cc/7YpMzM4C/Nice-Png-ben-10-png-1196558.png');
+  }
+  72.33%{
+    background-image:url('https://i.postimg.cc/N0x1Z3HT/Nice-Png-ben-roethlisberger-png-8515100.png');
+  }
+  80.33%{
+    background-image:url('https://i.postimg.cc/9XkG3trx/Nice-Png-brain-clipart-png-987863.png');
+  }
+  88.33%{
+    background-image:url('https://i.postimg.cc/LsV9g25g/Four-arms-os-render.png');
+  }
+  96.33%{
+    background-image:url('https://i.postimg.cc/FRqStc1q/Seek-Png-com-alien-png-281161.png');
+  }
+}
+
+  </style>
