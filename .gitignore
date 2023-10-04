@@ -1,4 +1,9 @@
-<style>
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title> Ben10 aline animation</title>
+  <style>
   body{
   font-size:90px;
   margin:0;
@@ -175,3 +180,32 @@ div.bg::before{
 }
 
   </style>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<audio controls loop>
+  <source src="https://github.com/Dashrath-Sharma/Audios/raw/main/Cartoons/Ben%2010%20Intro%20HINDI%20-%20HQ.mp3" type="audio/mp3">
+  Your browser does not support the audio tag.
+</audio>
+
+<div class='stars star1'></div>
+<div class='stars star2'></div>
+<div class='scene' onmouseover='play()' onmouseout='pause()' >
+  <div class='bg'></div>
+  <div class='backlit'></div>
+  <div class='img'></div>
+</div>
+<!-- partial -->
+  <script>
+  function play(){
+   document.querySelector('audio').play(); 
+}
+
+function pause(){
+   const audio = document.querySelector('audio');
+   audio.pause(); 
+   audio.currentTime = 6;
+}
+  </script>
+</body>
+</html>
